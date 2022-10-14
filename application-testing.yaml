@@ -1,0 +1,20 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: Audit Trail Service
+audit:
+  trail:
+    spring:
+      rabbitmq:
+        exchange: IN.AUDITS-EXCHANGE
+        host: oraclemq-uat.mau.cellulant.com
+        password: rmq-uat-us3r
+        port: 5672
+        template:
+          retry:
+            routing-key: IN.AUDIT-TRAILS-RETRY
+          routing-key: IN.AUDIT-TRAILS
+        username: rmq-uat-us3r
+        virtual-host: AUDITS
+
