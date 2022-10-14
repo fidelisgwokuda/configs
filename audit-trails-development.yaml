@@ -1,0 +1,20 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: Audit Trail Service
+audit:
+  trail:
+    spring:
+      rabbitmq:
+        exchange: audits-exchange
+        host: 10.250.20.62
+        password: jakababa.2022
+        port: 5672
+        template:
+          retry:
+            routing-key: audit-trails-retry
+          routing-key: audit-trails
+        username: audits-mq-user
+        virtual-host: AUDITS
+
